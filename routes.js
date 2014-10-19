@@ -22,10 +22,19 @@ Router.map(function() {
   });
 
   this.route('login', {
-      path: '/login',
+      path: '/account/login',
       onAfterAction: function() {
         SEO.set({
           title: 'Login | ' + SEO.settings.title
+        });
+      }
+  });
+
+  this.route('register', {
+      path: '/account/register',
+      onAfterAction: function() {
+        SEO.set({
+          title: 'Register | ' + SEO.settings.title
         });
       }
   });

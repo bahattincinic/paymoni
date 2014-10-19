@@ -1,17 +1,18 @@
-Meteor.publish('domain', function(userId) {
-    return Domain.find({'userId': userId});
+Meteor.publish('domain', function() {
+    var subscribe_domains = _.pluck(Subscribers.find({'userId': this.userId}) , 'domainId');
+    var user_domains = _.pluck(Domain.find({'userId': this.userId}), '_id');
+    var domain_ids = _.uniq(user_domains.concat(subscribe_domains));
+    return Domain.find('_id': {$in: domain_ids});
 });
 
-Meteor.publish('paymentbank', function(userId) {
-    return PaymentBank.find({'userId': userId});
+Meteor.publish('paymentbank', function(domainId){
+    return PaymentBank.find({'domainId': domainId});
 });
 
-Meteor.publish('subscribers', function(userId) {
-    var domains = Domain.find({'userId': userId}).fetch();
-    var domain_ids = _.pluck(domains, '_id');
-    return Subscribers.find({'domainId': {$in: domain_ids}});
+Meteor.publish('subscribers', function(domainId) {
+    return Subscribers.find({'domainId': domainId});
 });
 
-Meteor.publish('transactions', function(userId) {
-    return Transactions.find({'userId': userId});
+Meteor.publish('transactions', function(domainId) {
+    return Transactions.find({'domainId': domainId});
 });
