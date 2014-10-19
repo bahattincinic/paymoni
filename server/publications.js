@@ -1,8 +1,8 @@
 Meteor.publish('domain', function() {
-    var subscribe_domains = _.pluck(Subscribers.find({'userId': this.userId}) , 'domainId');
-    var user_domains = _.pluck(Domain.find({'userId': this.userId}), '_id');
+    var subscribe_domains = _.pluck(Subscribers.find({'userId': this.userId}).fetch() , 'domainId');
+    var user_domains = _.pluck(Domain.find({'userId': this.userId}).fetch(), '_id');
     var domain_ids = _.uniq(user_domains.concat(subscribe_domains));
-    return Domain.find('_id': {$in: domain_ids});
+    return Domain.find({'_id': {$in: domain_ids}});
 });
 
 Meteor.publish('paymentbank', function(domainId){
