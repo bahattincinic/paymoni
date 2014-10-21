@@ -1,8 +1,17 @@
-Paymoni
+![logo](https://cloud.githubusercontent.com/assets/1684999/4726978/b942a94a-5967-11e4-8c17-eb70fa4a7b9b.png)
 ==================
 Real Time Payment Transaction Monitoring Tool Uses Meteor.js, MongoDb
 
 **Warning** : This project is under development.
+
+Screenshots
+==================
+![screen shot 2014-10-22 at 00 20 10](https://cloud.githubusercontent.com/assets/1684999/4726961/8d9ec1f2-5967-11e4-91e0-473936e7394c.png)
+
+![screen shot 2014-10-22 at 00 20 35](https://cloud.githubusercontent.com/assets/1684999/4726962/8dc2f978-5967-11e4-8f92-1501dcf48c55.png)
+
+![screen shot 2014-10-22 at 00 20 54](https://cloud.githubusercontent.com/assets/1684999/4726963/8dcae7aa-5967-11e4-8f42-b34b29a47a4e.png)
+
 
 Installation
 ==================
